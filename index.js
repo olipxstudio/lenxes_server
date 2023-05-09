@@ -1,10 +1,9 @@
-require("dotenv").config({path: './config/_config.env'})
-
 const cors = require("cors")
 const express = require("express")
+require("dotenv").config({path: './config/_config.env'})
 const app = express()
 const db = require("./config/connection")
-db.connect()
+const {clientError} = require("./api/v1/utils/common")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
